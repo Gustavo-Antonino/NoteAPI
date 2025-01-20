@@ -20,30 +20,25 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
-    // Listar todas as notas
     public List<Note> getAllNotes() {
         return noteRepository.findAll();
     }
 
-    // Buscar uma nota por id
     public Optional<Note> getNoteById(Long id) {
         return noteRepository.findById(id);
     }
 
-    // Criar uma nova nota
     @Transactional
     public Note createNote(RequestNoteDTO requestNoteDTO) {
-        Note note = new Note(requestNoteDTO);  // Converte o DTO para a entidade Note
+        Note note = new Note(requestNoteDTO);
         return noteRepository.save(note);
     }
 
-    // Atualizar uma nota existente
     @Transactional
     public void updateNote(Long id, RequestNoteDTO requestNoteDTO) {
         noteRepository.updateNote(id, requestNoteDTO.title(), requestNoteDTO.content());
     }
 
-    // Deletar uma nota por id
     @Transactional
     public void deleteNote(Long id) {
         noteRepository.deleteById(id);

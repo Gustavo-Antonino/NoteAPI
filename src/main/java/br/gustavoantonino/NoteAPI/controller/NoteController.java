@@ -21,35 +21,30 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    // Listar todas as notas
     @GetMapping
     public ResponseEntity<List<Note>> getAllNotes() {
         List<Note> notes = noteService.getAllNotes();
         return ResponseEntity.ok(notes);
     }
 
-    // Buscar uma nota por id
     @GetMapping("/{id}")
     public ResponseEntity<Note> getNoteById(@PathVariable Long id) {
         Optional<Note> note = noteService.getNoteById(id);
         return note.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Criar uma nova nota
     @PostMapping
     public ResponseEntity<Note> createNote(@RequestBody RequestNoteDTO requestNoteDTO) {
         Note createdNote = noteService.createNote(requestNoteDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdNote);
     }
 
-    // Atualizar uma nota
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateNote(@PathVariable Long id, @RequestBody RequestNoteDTO requestNoteDTO) {
         noteService.updateNote(id, requestNoteDTO);
         return ResponseEntity.noContent().build();  // 204 No Content
     }
 
-    // Deletar uma nota
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteNote(@PathVariable Long id) {
         noteService.deleteNote(id);
