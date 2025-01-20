@@ -16,8 +16,8 @@ Tecnologias Usadas
 
 Funcionalidades
 
-  (POST /notes): Cria uma nova nota.
-  (GET /notes): Retorna uma lista de todas as notas.
-  (GET /notes/{id}): Retorna uma nota específica com base no ID.
-  (PUT /notes/{id}): Atualiza o título e o conteúdo de uma nota existente.
-  (DELETE /notes/{id}): Exclui uma nota pelo ID.
+- (POST /notes): Cria uma nova nota.
+- (GET /notes): Retorna uma lista de todas as notas.
+- (GET /notes/{id}): Retorna uma nota específica com base no ID.
+- (PUT /notes/{id}): Atualiza o título e o conteúdo de uma nota existente.
+- (DELETE /notes/{id}): Exclui uma nota pelo ID.
