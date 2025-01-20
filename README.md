@@ -14,7 +14,7 @@ Tecnologias Usadas
 - Spring Boot DevTools (para desenvolvimento)
 - Spring Validation (para validação de dados nas requisições)
 
-Funcionalidades
+Endpoints
 
 - "POST /notes": Cria uma nova nota.
 - "GET /notes": Retorna uma lista de todas as notas.
